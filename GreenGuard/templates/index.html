@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GreenGuard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>🌱 GreenGuard</h1>
+
+<div class="card">
+    <h2>Total Plants : {{ total_plants }}</h2>
+</div>
+
+<hr>
+
+<h2>Add Plant</h2>
+
+<form action="/add" method="post">
+
+    <input type="text"
+           name="id"
+           placeholder="Plant ID"
+           required>
+
+    <input type="text"
+           name="name"
+           placeholder="Plant Name"
+           required>
+
+    <input type="text"
+           name="type"
+           placeholder="Plant Type"
+           required>
+
+    <input type="number"
+           name="water_freq"
+           placeholder="Water Frequency (days)"
+           required>
+
+    <button>Add Plant</button>
+
+</form>
+
+<hr>
+
+<h2>Search Plant</h2>
+
+<form action="/search" method="post">
+
+    <input type="text"
+           name="search_id"
+           placeholder="Plant ID">
+
+    <button>Search</button>
+
+</form>
+
+{% if result %}
+<div class="card">
+    <h3>Plant Found</h3>
+
+    <p>ID : {{ result.id }}</p>
+    <p>Name : {{ result.name }}</p>
+    <p>Type : {{ result.type }}</p>
+</div>
+{% endif %}
+
+<hr>
+
+<h2>All Plants</h2>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Water Frequency</th>
+</tr>
+
+{% for plant in plants %}
+
+<tr>
+    <td>{{ plant.id }}</td>
+    <td>{{ plant.name }}</td>
+    <td>{{ plant.type }}</td>
+    <td>{{ plant.water_freq }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>💧 Watering Reminder</h2>
+
+<ul>
+
+{% for plant in reminders %}
+<li>{{ plant }}</li>
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<h2>🌿 Plant Doctor</h2>
+
+<form action="/doctor" method="post">
+
+<select name="symptom">
+
+<option>Yellow Leaves</option>
+
+<option>Brown Spots</option>
+
+<option>Slow Growth</option>
+
+</select>
+
+<button>Check</button>
+
+</form>
+
+{% if cause %}
+
+<div class="card">
+
+<h3>Diagnosis</h3>
+
+<p><b>Cause:</b> {{ cause }}</p>
+
+<p><b>Solution:</b> {{ solution }}</p>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>

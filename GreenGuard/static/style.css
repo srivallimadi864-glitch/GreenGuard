@@ -1,0 +1,48 @@
+body{
+    font-family: Arial;
+    margin: 30px;
+    background: #f0fff4;
+}
+
+h1{
+    color: green;
+}
+
+.card{
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px gray;
+}
+
+input,
+select,
+button{
+    padding: 8px;
+    margin: 5px;
+}
+
+button{
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td{
+    border: 1px solid black;
+}
+
+th,
+td{
+    padding: 10px;
+    text-align: center;
+}

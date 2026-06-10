@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "name": "lily",
+        "type": "flower",
+        "water_freq": 1
+    },
+    {
+        "id": "2",
+        "name": "rose",
+        "type": "flower",
+        "water_freq": 3
+    }
+]
